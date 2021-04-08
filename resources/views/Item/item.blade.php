@@ -15,10 +15,10 @@
             <thead>
               <tr>
                 <th>ID Item</th>
-                <th>Nama Item</th>
+                <th>name_Item</th>
                 <th>Picture</th>
-                <th>Type</th>
-                <th>Deskription</th>
+                <th>type</th>
+                <th>deskription</th>
                 <th>Price</th>
                 <th>Stock</th>
                 <th>Merchant</th>
@@ -42,7 +42,7 @@
                   <form action="{{ url('Item_destroy', $dt->id )}}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                    <a href="{{ url('Item_edit', $dt->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                    <a href="{{ url('item_edit', $dt->id) }}" class="btn btn-sm btn-primary">Edit</a>
                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
                   </form>
                 </td>
@@ -50,7 +50,7 @@
               @endforeach
             </tbody>
         </table>
-        <a href="{{url('Item_create')}}" class="btn btn-sm btn-success">Tambah data barang</a>
+        <a href="{{url('item_create')}}" class="btn btn-sm btn-success">Tambah data barang</a>
     </div>
 
 @stop

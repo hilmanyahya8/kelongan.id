@@ -10,10 +10,17 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="{{ url('Login/css/style.css') }}">
-
+	
 	</head>
 	<body>
 	<section class="ftco-section">
+	@if(Session::has('pesan'))
+	<p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('pesan') }}</p>
+	@endif
+
+	@if(Session::has('pesan'))
+	<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('pesan') }}</p>
+	@endif
 		<div class="container">
 			<!-- <div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">

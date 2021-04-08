@@ -14,17 +14,16 @@ class ItemController extends Controller
     public function index()
     {
         $data = DB::table('items')
-                        ->select('items.id', 'items.name_items', 'items.picture', 'items.type',
-                                'items.deskription', 'items.price', 'items.stock', 'merchant.name_merchant')
+                        ->select('items.id')
                         ->join('merchant', 'merchant.id', '=', 'items.id_merchant')
                         ->get();
         
-        return view('Item.item', compact('data'));
+        return view('item.item', compact('data'));
     }
 
     public function create()
     {
-        return view('Item.item_create');
+        return view('item.item_create');
     }
 
 
@@ -53,7 +52,7 @@ class ItemController extends Controller
         $items->save();
         
         return redirect('item')->with('alert_pesan', 'Data telah disimpan');
-    
+            
     }
     public function show($id)
     {

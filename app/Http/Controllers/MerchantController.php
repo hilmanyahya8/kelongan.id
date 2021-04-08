@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\User;
 use App\Models\Merchant;
-use Illuminate\Support\facades\DB;
+use Illuminate\Support\Facades\DB;
 
 class MerchantController extends Controller
 {
@@ -44,16 +44,11 @@ class MerchantController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nama_merchant' => 'required',
-            'address' => 'required',
+        DB::table('merchant')->insert ([
+          'nama_merchant' => $request->nama_merchant,
+          'address' => $request->alamat,
+          'id_users' => $request->id_user
           ]);
-    
-          $data = new Merchant();
-          $data->nama_merchant = $request->nama_merchant;
-          $data->address = $request->address;
-          $data->id_users = $request->id_users;
-          $data->save();
     
           return redirect('/merchant')->with('alert_pesan', 'berhasil menambah data');
     }
@@ -77,7 +72,7 @@ class MerchantController extends Controller
      */
     public function edit($id)
     {
-        $data = Merchant::where('id', $id)->get();
+        $data = DB::table('merchant')->where('id', $id)->get();
         return view('Merchant.merchant_update', compact('data'));
     }
 
@@ -90,16 +85,11 @@ class MerchantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'nama_merchant' => 'required',
-            'address' => 'required',
+        DB::table('merchant')->where('id',$request->id)->update ([
+          'nama_merchant' => $request->nama_merchant,
+          'address' => $request->alamat,
+          'id_users' => $request->id_user
           ]);
-    
-          $data = Merchant::where('id', $id)->first();
-          $data->nama_merchant = $request->nama_merchant;
-          $data->address = $request->address;
-          $data->id_users = $request->id_users;
-          $data->save();
     
           return redirect('/merchant')->with('alert_pesan', 'berhasil mengubah data');
     }
@@ -112,6 +102,7 @@ class MerchantController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('merchant')->where('id',$id)->delete();
+		return redirect('/merchant');
     }
 }

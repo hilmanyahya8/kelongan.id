@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Session;
+use Illuminate\support\facades\session;
+use Illuminate\Support\facades\DB;
 
 class LoginController extends Controller
 {
@@ -29,6 +30,7 @@ class LoginController extends Controller
             Session::put('login_status', true);
             return redirect('/home');
         } else {
+            // Session::flash('message', 'This is a message!');
             Session::flash('pesan', 'Email dan Password salah');
             return redirect('log in');
         }

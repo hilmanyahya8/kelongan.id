@@ -17,38 +17,38 @@
 			{{ csrf_field() }}	
             {{ method_field('PUT') }}
 				<div class="col-md-4">
-    				<label for="validationDefault01" class="form-label">Nama Barang</label>
-    				<input type="text" class="form-control" id="validationDefault01" name="nama_barang" placeholder="Nama Barang" value="{{$dt->nama_barang}}" required>
+    				<label for="validationDefault01" class="form-label">nama_item</label>
+    				<input type="text" class="form-control" id="validationDefault01" name="nama_items" placeholder="nama_items" value="{{$dt->nama_items}}" required>
   				</div>
 				<div class="col-md-4">
-					<label for="validationDefault02" class="form-label">Jenis Barang</label>
-					<input type="text" class="form-control" id="validationDefault02" name="jenis" placeholder="Jenis Barang" value="{{$dt->jenis}}" required>
+					<label for="validationDefault02" class="form-label">type</label>
+					<input type="text" class="form-control" id="validationDefault02" name="type" placeholder="type" value="{{$dt->type}}" required>
 				</div>
 				<div class="col-md-4">
-					<label for="validationDefaultUsername" class="form-label">Harga</label>
+					<label for="validationDefaultUsername" class="form-label">price</label>
 					<div class="input-group">
-					<input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" name="harga" placeholder="Harga" value="{{$dt->harga}}" required>
+					<input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" name="price" placeholder="price" value="{{$dt->price}}" required>
 					</div>
 				</div>
 				<div class="mb-3">
-				<label for="validationDefault03" class="form-label">Foto Barang</label>
-					<input type="file" class="form-control" aria-label="file example" name="foto" value="{{$dt->foto}}" required>
+				<label for="validationDefault03" class="form-label">picture</label>
+					<input type="file" class="form-control" aria-label="file example" name="picture" value="{{$dt->picture}}" required>
   				</div>
 				<div class="col-md-6">
-					<label for="validationDefault03" class="form-label">Stok</label>
-					<input type="text" class="form-control" id="validationDefault03" name="stok" placeholder="Stok" value="{{$dt->stok}}" required>
+					<label for="validationDefault03" class="form-label">Stock</label>
+					<input type="text" class="form-control" id="validationDefault03" name="stock" placeholder="Stock" value="{{$dt->stock}}" required>
 				</div>
 				<div class="mb-3">
-    				<label for="validationTextarea" class="form-label">Deskripsi Barang</label>
-    				<textarea class="form-control" id="validationTextarea" name="deskripsi" placeholder="Deskripsi Barang" value="{{$dt->deskripsi}}" required></textarea>
+    				<label for="validationTextarea" class="form-label">deskription</label>
+    				<textarea class="form-control" id="validationTextarea" name="deskription" placeholder="deskription" value="{{$dt->deskription}}" required></textarea>
     			</div>
 				<div class="mb-3">
-    				<label for="validationTextarea" class="form-label">ID Merchant</label>
-    				<input class="form-control" id="validationTextarea" name="id_merchant" placeholder="ID Merchant" value="{{$dt->id_merchant}}" required>
+    				<label for="validationTextarea" class="form-label">id_merchant</label>
+    				<input class="form-control" id="validationTextarea" name="id_merchant" placeholder="id_merchant" value="{{$dt->id_merchant}}" required>
     			</div>
 				<div class="col-12">
 					<button class="btn btn-primary" type="submit">Simpan</button>
-					<a href="{{url('barang')}}" class="btn btn-success">Kembali</a>
+					<a href="{{url('type')}}" class="btn btn-success">Kembali</a>
 				</div>
 			</form>
             @endforeach

@@ -51,7 +51,7 @@ Route::delete('seller_destroy/{id}', [SellerController::class, 'destroy']);
 //CRUD Barang
 Route::get('item', [ItemController::class, 'index']);
 Route::get('item_create', [ItemController::class, 'create']);
-Route::post('item_store', [ItemController::class, 'store']);
+Route::get('item_store', [ItemController::class, 'store']);
 Route::get('item_edit/{id}', [ItemController::class, 'edit']);
 Route::put('item_update/{id}', [ItemController::class, 'update']);
 Route::delete('item_destroy/{id}', [ItemController::class, 'destroy']);

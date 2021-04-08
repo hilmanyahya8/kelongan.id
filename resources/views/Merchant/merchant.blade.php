@@ -15,9 +15,10 @@
             <thead>
               <tr>
                 <th>ID Merchant</th>
-                <th>id_user</th>
-                <th>nama_merchant</th>
-                <th>address</th>
+                <th>ID Seller</th>
+				        <th>Nama Seller</th>
+                <th>Nama Toko</th>
+                <th>alamat</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -26,10 +27,10 @@
               @foreach($data as $dt)
               <tr>
                 <td>{{ $dt->id }}</td>
+                <td>{{ $dt->id_users}}</td>
+                <td>{{ $dt->name}}</td>
                 <td>{{ $dt->nama_merchant}}</td>
                 <td>{{ $dt->address}}</td>
-                <td>{{ $dt->id_user}}</td>
-                <td>{{ $dt->name}}</td>
                 <td>
 
                   <form action="{{ url('merchant_destroy', $dt->id )}}" method="post">

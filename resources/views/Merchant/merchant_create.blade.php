@@ -16,7 +16,7 @@
 			{{ csrf_field() }}	
 				<div class="col-md-4">
     				<label for="validationDefault01" class="form-label">Nama Toko</label>
-    				<input type="text" class="form-control" id="validationDefault01" name="nama_toko" placeholder="Nama Toko" required>
+    				<input type="text" class="form-control" id="validationDefault01" name="nama_merchant" placeholder="Nama Toko" required>
   				</div>
 				<div class="col-md-4">
 					<label for="validationDefault02" class="form-label">Alamat</label>

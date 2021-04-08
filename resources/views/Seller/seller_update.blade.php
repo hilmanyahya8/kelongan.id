@@ -18,11 +18,11 @@
             {{ method_field('PUT') }}	
 				<div class="col-md-4">
     				<label for="validationDefault01" class="form-label">Nama Lengkap</label>
-    				<input type="text" class="form-control" id="validationDefault01" name="nama" placeholder="Nama Lengkap" value="{{ $dt->nama }}" required>
+    				<input type="text" class="form-control" id="validationDefault01" name="nama" placeholder="Nama Lengkap" required>
   				</div>
 				<div class="col-md-4">	
-					<label for="validationDefault02" class="form-label">Nomor Telepon</label>
-					<input type="text" class="form-control" id="validationDefault02" name="telp" placeholder="Nomor Telepon" value="{{ $dt->telp }}" required>
+					<label for="validationDefault02" class="form-label">E-mail</label>
+					<input type="text" class="form-control" id="validationDefault02" name="email" placeholder="email" required>
 				</div>
 				<!-- <div class="col-md-4">
 					<label for="validationDefaultUsername" class="form-label">E-Mail</label>

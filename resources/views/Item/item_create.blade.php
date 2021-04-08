@@ -12,41 +12,41 @@
         <div>{{ $error }}</div>
       @endforeach
       @endif -->
-			<form class="row g-3" action="{{ url('barang_store') }}" method="post" enctype="multipart/form-data">
+			<form class="row g-3" action="{{ url('item') }}" method="post" enctype="multipart/form-data">
 			{{ csrf_field() }}	
 				<div class="col-md-4">
-    				<label for="validationDefault01" class="form-label">Nama Barang</label>
-    				<input type="text" class="form-control" id="validationDefault01" name="nama_barang" placeholder="Nama Barang" required>
+    				<label for="validationDefault01" class="form-label">nama_items</label>
+    				<input type="text" class="form-control" id="validationDefault01" name="nama_items" placeholder="nama_items" required>
   				</div>
 				<div class="col-md-4">
-					<label for="validationDefault02" class="form-label">Jenis Barang</label>
-					<input type="text" class="form-control" id="validationDefault02" name="jenis" placeholder="Jenis Barang" required>
+					<label for="validationDefault02" class="form-label">type</label>
+					<input type="text" class="form-control" id="validationDefault02" name="type" placeholder="type" required>
 				</div>
 				<div class="col-md-4">
-					<label for="validationDefaultUsername" class="form-label">Harga</label>
+					<label for="validationDefaultUsername" class="form-label">price</label>
 					<div class="input-group">
-					<input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" name="harga" placeholder="Harga" required>
+					<input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" name="price" placeholder="price" required>
 					</div>
 				</div>
 				<div class="mb-3">
-				<label for="validationDefault03" class="form-label">Foto Barang</label>
-					<input type="file" class="form-control" aria-label="file example" name="foto" required>
+				<label for="validationDefault03" class="form-label">picture</label>
+					<input type="file" class="form-control" aria-label="file example" name="picture" required>
   				</div>
 				<div class="col-md-6">
-					<label for="validationDefault03" class="form-label">Stok</label>
-					<input type="text" class="form-control" id="validationDefault03" name="stok" placeholder="Stok" required>
+					<label for="validationDefault03" class="form-label">Stock</label>
+					<input type="text" class="form-control" id="validationDefault03" name="stock" placeholder="Stock" required>
 				</div>
 				<div class="mb-3">
-    				<label for="validationTextarea" class="form-label">Deskripsi Barang</label>
-    				<textarea class="form-control" id="validationTextarea" name="deskripsi" placeholder="Deskripsi Barang" required></textarea>
+    				<label for="validationTextarea" class="form-label">deskription</label>
+    				<textarea class="form-control" id="validationTextarea" name="Deskription" placeholder="Deskription" required></textarea>
     			</div>
 				<div class="mb-3">
     				<label for="validationTextarea" class="form-label">ID Merchant</label>
     				<input class="form-control" id="validationTextarea" name="id_merchant" placeholder="ID Merchant" required>
     			</div>
 				<div class="col-12">
-					<button class="btn btn-primary" type="submit">Simpan</button>
-					<a href="{{url('barang')}}" class="btn btn-success">Kembali</a>
+					<button class="btn btn-primary" type="submit" href="{{url('item')}}">Simpan</button>
+					<a href="{{url('item')}}" class="btn btn-success">Kembali</a>
 				</div>
 			</form>
 		<!-- </div> -->

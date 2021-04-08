@@ -41,7 +41,7 @@
                         <a class="nav-link" aria-current="page" href="{{ url('/home') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/Item') }}">Items</a>
+                        <a class="nav-link" href="{{ url('/item') }}">Items</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Orders</a>

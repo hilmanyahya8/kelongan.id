@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Validator;
 use Session;
 use App\Models\User;
@@ -20,7 +21,7 @@ class SellerController extends Controller
      */
     public function index()
     {
-        $data = User::where('level', '=', 'seller')->get();
+        $data = DB::table('users')->get();
 
         return view('Seller.seller', compact('data'));
     }
@@ -43,17 +44,13 @@ class SellerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'Username' => 'required',
-            'password' => 'required',
+        DB::table('users')->insert ([
+            'name' => $request->nama,
+			'email' => $request->email,
+            'password' => $request->password,
+			'level' => 'seller'
           ]);
-    
-          $data = new User();
-          $data->Username = $request->email;
-          $data->password = md5($request->password);
-          $data->level = 'seller';
-          $data->save();
-    
+                
           return redirect('/seller')->with('alert_pesan', 'berhasil menambah data');
     }
 
@@ -76,7 +73,7 @@ class SellerController extends Controller
      */
     public function edit($id)
     {
-        $data = User::where('id', $id)->get();
+        $data = DB::table('users')->where('id', $id)->get();
         return view('Seller.seller_update', compact('data'));
     }
 
@@ -89,15 +86,11 @@ class SellerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'nama' => 'required',
-            'telp' => 'required',
-        ]);
-
-        $data = User::where('id', $id)->first();
-            $data->nama = $request->nama;
-            $data->telp = $request->telp;
-            $data->save();
+         DB::table('users')->where('id',$request->id)->update([
+            'name' => $request->nama,
+			'email' => $request->email,
+            'level' => 'seller'
+          ]);
         
             return redirect('/seller')->with('alert_message', 'Berhasil mengubah data!');
         }

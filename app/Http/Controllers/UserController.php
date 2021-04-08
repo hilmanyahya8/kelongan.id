@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Validator;
-use Session;
+use Illuminate\support\facades\Session;
 use App\Models\User;
 
 class UserController extends Controller
@@ -51,14 +51,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,  [
-            'Username' => 'required|string|max:50',
-            'password' => 'required|string|min:10',
+            'email' => 'required|string|max:50',
+            'name' => 'required|string|max:50',
+            'password' => 'required|string|min:5',
         ]);
 
         // if($validator->fails()){
         //     return $this->response->errorResponse($validator->errors());
         // }
-
+        
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -66,6 +67,8 @@ class UserController extends Controller
         $user->level = 'customer';
         $user->save();
 
+
+        Session::flash('pesan_register', 'Berhasil Register');
         return redirect('/log in')->with('alert_pesan', 'Data anda telah disimpan');
     }
 

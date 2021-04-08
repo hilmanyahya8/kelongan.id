@@ -17,7 +17,6 @@
               <tr>
                 <th>ID Seller</th>
                 <th>Nama</th>
-                <th>Nomor Telepon</th>
                 <th>Email</th>
                 <th>Level</th>
                 <th>Aksi</th>
@@ -27,9 +26,8 @@
               <!-- @php $no = 1; @endphp -->
               @foreach($data as $dt)
               <tr>
-                <td>{{ $dt->id }}</td>
-                <td>{{ $dt->nama}}</td>
-                <td>{{ $dt->telp}}</td>
+                <td>{{ $dt->id}}</td>
+                <td>{{ $dt->name}}</td>
                 <td>{{ $dt->email}}</td>
                 <td>{{ $dt->level}}</td>
                 <td>

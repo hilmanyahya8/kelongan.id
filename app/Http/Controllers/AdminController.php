@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Validator;
 use App\Models\User;
 
@@ -10,7 +11,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $data = User::where('level', '=', 'admin')->get();
+        $data = DB::table('users')->get();
 
         return view('Admin.admin', compact('data'));
     }
@@ -20,19 +21,13 @@ class AdminController extends Controller
     }
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+       DB::table('users')->insert ([
+            'name' => $request->nama,
+			'email' => $request->email,
+            'password' => $request->password,
+			'level' => 'admin'
           ]);
-    
-          $data = new User();
-          $data->name = $request->name;
-          $data->email = $request->email;
-          $data->password = md5($request->password);
-          $data->level = 'admin';
-          $data->save();
-    
+                
           return redirect('/admin')->with('alert_pesan', 'berhasil menambah data');
     }
     public function edit($id)
