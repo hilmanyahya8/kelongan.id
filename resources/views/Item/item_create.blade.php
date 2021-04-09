@@ -12,7 +12,7 @@
         <div>{{ $error }}</div>
       @endforeach
       @endif -->
-			<form class="row g-3" action="{{ url('item') }}" method="post" enctype="multipart/form-data">
+			<form class="row g-3" action="{{ url('item_store') }}" method="post" enctype="multipart/form-data">
 			{{ csrf_field() }}	
 				<div class="col-md-4">
     				<label for="validationDefault01" class="form-label">nama_items</label>
@@ -38,18 +38,18 @@
 				</div>
 				<div class="mb-3">
     				<label for="validationTextarea" class="form-label">deskription</label>
-    				<textarea class="form-control" id="validationTextarea" name="Deskription" placeholder="Deskription" required></textarea>
+    				<textarea class="form-control" id="validationTextarea" name="deskription" placeholder="Deskription" required></textarea>
     			</div>
 				<div class="mb-3">
     				<label for="validationTextarea" class="form-label">ID Merchant</label>
     				<input class="form-control" id="validationTextarea" name="id_merchant" placeholder="ID Merchant" required>
     			</div>
 				<div class="col-12">
-					<button class="btn btn-primary" type="submit" href="{{url('item')}}">Simpan</button>
+					<button class="btn btn-primary" type="submit" >Simpan</button>
 					<a href="{{url('item')}}" class="btn btn-success">Kembali</a>
 				</div>
 			</form>
-		<!-- </div> -->
+		</div>
 	</div>
 
 

@@ -18,10 +18,10 @@ class item extends Model
         'price',
         'stock'
     ];
-    protected $table = "barang";
+    protected $table = "items";
     protected $primaryKey = "id"; 
 
-    public function barang(){
+    public function item(){
         return $this->belongsTo('App\Models\Merchant', 'id', 'id_merchant');
     }
 }

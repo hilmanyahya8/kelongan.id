@@ -14,7 +14,7 @@ class ItemController extends Controller
     public function index()
     {
         $data = DB::table('items')
-                        ->select('items.id')
+                        ->select('items.id', 'items.nama_items', 'items.picture', 'items.type','items.deskription', 'items.price', 'items.stock', 'merchant.nama_merchant')
                         ->join('merchant', 'merchant.id', '=', 'items.id_merchant')
                         ->get();
         
@@ -30,7 +30,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name_items' => 'required',
+            'nama_items' => 'required',
             'picture' => 'required|mimes:jpeg, jpg, png, svg',
             'type' => 'required',
             'deskription' => 'required',
@@ -42,7 +42,7 @@ class ItemController extends Controller
     
    
         $items = new item();
-        $items->name_items = $request->name_item;
+        $items->nama_items = $request->nama_items;
         $items->picture = $picture;
         $items->type = $request->type;
         $items->deskription = $request->deskription;
@@ -51,7 +51,7 @@ class ItemController extends Controller
         $items->id_merchant = $request->id_merchant;
         $items->save();
         
-        return redirect('item')->with('alert_pesan', 'Data telah disimpan');
+        return redirect('/item')->with('alert_pesan', 'Data telah disimpan');
             
     }
     public function show($id)
@@ -65,29 +65,30 @@ class ItemController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name_items' => 'required',
-            'picture' => 'required|mimes:jpeg, jpg, png, svg',
-            'type' => 'required',
-            'deskription' => 'required',
-            'price' => 'required',
-            'stock' => 'required',
-        ]);
-    
-    $picture = rand().$request->file('picture')->getClientOriginalName();
-    $request->file('picture')->move(base_path("./public/Uploads"), $picture);
-
-        $items = item::where('id', $id)->first();
-        $items->name_items = $request->name_item;
-        $items->picture = $picture;
-        $items->type = $request->type;
-        $items->deskription = $request->deskription;
-        $items->price = $request->price;
-        $items->stock = $request->stock;
-        $items->id_merchant = $request->id_merchant;
-        $items->save();
+        DB::table('items')->where('id',$request->id)->update ([
+            'nama_items' => $request->nama_items,
+            'picture' => $request->picture,
+            'type' => $request->type,
+            'deskription' => $request->deskription,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'id_merchant' => $request->id_merchant
+            ]);
+            // $picture = rand().$request->file('picture')->getClientOriginalName();
+            // $request->file('picture')->move(base_path("./public/Uploads"), $picture);
+            
+            
+        // $items = item::where('id', $id)->first();
+        // $items->nama_items = $request->nama_items;
+        // $items->picture = $picture;
+        // $items->type = $request->type;
+        // $items->deskription = $request->deskription;
+        // $items->price = $request->price;
+        // $items->stock = $request->stock;
+        // $items->id_merchant = $request->id_merchant;
+        // $items->save();
         
-        return redirect('item')->with('alert_pesan', 'Data telah diubah');
+        return redirect('/item')->with('alert_pesan', 'Data telah diubah');
 
     }
     public function destroy($id)

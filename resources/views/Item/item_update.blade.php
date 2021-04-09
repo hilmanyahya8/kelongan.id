@@ -13,7 +13,7 @@
       @endforeach
       @endif -->
       @foreach($data as $dt)
-			<form class="row g-3" action="{{ url('barang_update', $dt->id) }}" method="post" enctype="multipart/form-data">
+			<form class="row g-3" action="{{ url('item_update', $dt->id) }}" method="post" enctype="multipart/form-data">
 			{{ csrf_field() }}	
             {{ method_field('PUT') }}
 				<div class="col-md-4">
@@ -48,7 +48,7 @@
     			</div>
 				<div class="col-12">
 					<button class="btn btn-primary" type="submit">Simpan</button>
-					<a href="{{url('type')}}" class="btn btn-success">Kembali</a>
+					<a href="{{url('/item')}}" class="btn btn-success">Kembali</a>
 				</div>
 			</form>
             @endforeach

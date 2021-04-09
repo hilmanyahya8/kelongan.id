@@ -31,7 +31,7 @@
               <tr>
                 <td>{{ $dt->id }}</td>
                 <td>{{ $dt->nama_items}}</td>
-                <td><img src="/Uploads/{{$dt->foto}}" alt="Foto" width="100px"></td>
+                <td><img src="/Uploads/{{$dt->picture}}" alt="picture" width="100px"></td>
                 <td>{{ $dt->type}}</td>
                 <td>{{ $dt->deskription}}</td>
                 <td>{{ $dt->price}}</td>
@@ -39,7 +39,7 @@
                 <td>{{ $dt->nama_merchant}}</td>
                 <td>
 
-                  <form action="{{ url('Item_destroy', $dt->id )}}" method="post">
+                  <form action="{{ url('item_destroy', $dt->id )}}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                     <a href="{{ url('item_edit', $dt->id) }}" class="btn btn-sm btn-primary">Edit</a>
